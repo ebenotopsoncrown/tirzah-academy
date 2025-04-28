@@ -5,36 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login - Tirzah Academy</title>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <h1 class="logo">👤 Login</h1>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script defer>
+    function loginUser() {
+      const name = document.getElementById('name').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-    <input type="email" id="email" placeholder="Email" class="menu-btn"><br>
-    <input type="password" id="password" placeholder="Password" class="menu-btn"><br>
-    
-    <button onclick="login()" class="menu-btn">Login</button><br>
-    <p>Don't have an account? <a href="register.html">Register here</a></p>
-    <p><a href="index.html">← Back to Home</a></p>
-  </div>
+      if (!name || !password) {
+        alert('Please enter both Name and Password.');
+        return;
+      }
 
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="firebase-config.js"></script>
-  <script>
-    function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      
-      firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        alert("Login successful!");
-        window.location.href = "index.html";
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
+      const userRef = firebase.database().ref('users/' + name);
+      userRef.get().then((snapshot) => {
+        if (snapshot.exists()) {
+          const userData = snapshot.val();
+          if (userData.password === password) {
+            alert('Login successful! Welcome ' + name + '!');
+            window.location.href = "index.html"; // Redirect to homepage
+          } else {
+            alert('Incorrect password. Please try again.');
+          }
+        } else {
+          alert('User not found. Please register first.');
+        }
+      }).catch(error => {
+        alert('Error: ' + error.message);
       });
     }
   </script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">Login - Tirzah Academy</h1>
+    <input type="text" id="name" placeholder="Enter your Name" class="menu-btn">
+    <input type="password" id="password" placeholder="Enter your Password" class="menu-btn">
+    <button onclick="loginUser()" class="menu-btn">Login</button>
+    <p><a href="register.html">Don't have an account? Register here</a></p>
+  </div>
 </body>
 </html>
