@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick Maths - Easy</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">➕ Quick Maths - Easy</h1>
+    <div id="questionBox"></div>
+    <input type="number" id="answerInput" class="menu-btn" placeholder="Your answer">
+    <button onclick="checkAnswer()" class="menu-btn">Submit</button>
+    <p id="score">Score: 0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    let num1, num2, operator;
+    let score = 0;
+
+    function generateQuestion() {
+      num1 = Math.floor(Math.random() * 10) + 1; // 1-10
+      num2 = Math.floor(Math.random() * 10) + 1;
+      operator = Math.random() > 0.5 ? "+" : "-";
+
+      document.getElementById('questionBox').innerHTML = `<h3>What is ${num1} ${operator} ${num2}?</h3>`;
+      document.getElementById('answerInput').value = "";
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseInt(document.getElementById('answerInput').value);
+      let correctAnswer = operator === "+" ? (num1 + num2) : (num1 - num2);
+
+      if (userAnswer === correctAnswer) {
+        score += 10;
+      }
+      document.getElementById('score').innerText = "Score: " + score;
+      generateQuestion();
+    }
+
+    generateQuestion();
+  </script>
+</body>
+</html>

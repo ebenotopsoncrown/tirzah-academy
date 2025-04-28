@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IQ Test - Easy Level</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">🧠 IQ Test - Easy</h1>
+    <div id="questionBox"></div>
+    <div id="optionsBox"></div>
+    <p id="score">Score: 0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "What comes next? 2, 4, 6, 8, ___", options: ["10", "9", "11", "12"], answer: "10" },
+      { q: "What is 3 + 5?", options: ["7", "8", "9", "10"], answer: "8" },
+      { q: "Find the odd one out: Apple, Banana, Car, Orange", options: ["Banana", "Car", "Apple", "Orange"], answer: "Car" },
+      { q: "What is half of 8?", options: ["2", "3", "4", "5"], answer: "4" },
+      { q: "What color is the sky on a clear day?", options: ["Red", "Blue", "Green", "Yellow"], answer: "Blue" }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function showQuestion() {
+      if (current >= questions.length) {
+        document.getElementById('questionBox').innerHTML = "<h2>Test Completed!</h2><p>Your Score: " + score + "</p>";
+        document.getElementById('optionsBox').innerHTML = "";
+        return;
+      }
+      document.getElementById('questionBox').innerHTML = "<h3>" + questions[current].q + "</h3>";
+      document.getElementById('optionsBox').innerHTML = "";
+      questions[current].options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.className = "menu-btn";
+        btn.onclick = () => checkAnswer(opt);
+        document.getElementById('optionsBox').appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected) {
+      if (selected === questions[current].answer) {
+        score += 10;
+      }
+      current++;
+      showQuestion();
+      document.getElementById('score').innerText = "Score: " + score;
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>

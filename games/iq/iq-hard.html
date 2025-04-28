@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IQ Test - Hard Level</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">🧠 IQ Test - Hard</h1>
+    <div id="questionBox"></div>
+    <div id="optionsBox"></div>
+    <p id="score">Score: 0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "Find the next number: 1, 4, 9, 16, ___", options: ["25", "24", "26", "23"], answer: "25" },
+      { q: "Which is the odd one: 11, 13, 17, 21", options: ["11", "13", "17", "21"], answer: "21" },
+      { q: "What comes next: A, C, F, J, O, ___", options: ["U", "V", "W", "X"], answer: "U" },
+      { q: "Solve: If BIRD = 2194, what is CAT?", options: ["312", "314", "316", "318"], answer: "314" },
+      { q: "Missing pattern: 2, 6, 12, 20, ___", options: ["28", "30", "32", "34"], answer: "30" }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function showQuestion() {
+      if (current >= questions.length) {
+        document.getElementById('questionBox').innerHTML = "<h2>Test Completed!</h2><p>Your Score: " + score + "</p>";
+        document.getElementById('optionsBox').innerHTML = "";
+        return;
+      }
+      document.getElementById('questionBox').innerHTML = "<h3>" + questions[current].q + "</h3>";
+      document.getElementById('optionsBox').innerHTML = "";
+      questions[current].options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.className = "menu-btn";
+        btn.onclick = () => checkAnswer(opt);
+        document.getElementById('optionsBox').appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected) {
+      if (selected === questions[current].answer) {
+        score += 10;
+      }
+      current++;
+      showQuestion();
+      document.getElementById('score').innerText = "Score: " + score;
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>

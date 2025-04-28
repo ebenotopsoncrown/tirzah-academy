@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Millionaire - Hard</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">💰 Millionaire - Hard</h1>
+    <div id="questionBox"></div>
+    <div id="optionsBox"></div>
+    <p id="score">Money Won: $0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "What is the square root of 144?", options: ["10", "11", "12", "13"], answer: "12" },
+      { q: "In what year did World War II end?", options: ["1940", "1945", "1950", "1955"], answer: "1945" },
+      { q: "Who painted the Mona Lisa?", options: ["Vincent Van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"], answer: "Leonardo da Vinci" },
+      { q: "Which is the smallest prime number?", options: ["0", "1", "2", "3"], answer: "2" },
+      { q: "What is the chemical symbol for Gold?", options: ["Au", "Ag", "Go", "Gd"], answer: "Au" }
+    ];
+
+    let current = 0;
+    let money = 0;
+
+    function showQuestion() {
+      if (current >= questions.length) {
+        document.getElementById('questionBox').innerHTML = "<h2>Game Completed!</h2><p>Total Money Won: $" + money + "</p>";
+        document.getElementById('optionsBox').innerHTML = "";
+        return;
+      }
+      document.getElementById('questionBox').innerHTML = "<h3>" + questions[current].q + "</h3>";
+      document.getElementById('optionsBox').innerHTML = "";
+      questions[current].options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.className = "menu-btn";
+        btn.onclick = () => checkAnswer(opt);
+        document.getElementById('optionsBox').appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected) {
+      if (selected === questions[current].answer) {
+        money += 300;
+      }
+      current++;
+      showQuestion();
+      document.getElementById('score').innerText = "Money Won: $" + money;
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>

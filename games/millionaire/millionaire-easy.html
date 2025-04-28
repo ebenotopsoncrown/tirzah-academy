@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Millionaire - Easy</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">💰 Millionaire - Easy</h1>
+    <div id="questionBox"></div>
+    <div id="optionsBox"></div>
+    <p id="score">Money Won: $0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "What is the color of the sky on a clear day?", options: ["Blue", "Green", "Red", "Yellow"], answer: "Blue" },
+      { q: "How many days are there in a week?", options: ["5", "6", "7", "8"], answer: "7" },
+      { q: "What sound does a dog make?", options: ["Meow", "Quack", "Moo", "Bark"], answer: "Bark" },
+      { q: "How many legs does a spider have?", options: ["6", "8", "4", "10"], answer: "8" },
+      { q: "Which one is a fruit?", options: ["Carrot", "Potato", "Banana", "Lettuce"], answer: "Banana" }
+    ];
+
+    let current = 0;
+    let money = 0;
+
+    function showQuestion() {
+      if (current >= questions.length) {
+        document.getElementById('questionBox').innerHTML = "<h2>Game Completed!</h2><p>Total Money Won: $" + money + "</p>";
+        document.getElementById('optionsBox').innerHTML = "";
+        return;
+      }
+      document.getElementById('questionBox').innerHTML = "<h3>" + questions[current].q + "</h3>";
+      document.getElementById('optionsBox').innerHTML = "";
+      questions[current].options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.className = "menu-btn";
+        btn.onclick = () => checkAnswer(opt);
+        document.getElementById('optionsBox').appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected) {
+      if (selected === questions[current].answer) {
+        money += 100;
+      }
+      current++;
+      showQuestion();
+      document.getElementById('score').innerText = "Money Won: $" + money;
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>

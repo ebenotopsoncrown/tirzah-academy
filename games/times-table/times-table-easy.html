@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Times Table - Easy</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">➗ Times Table - Easy</h1>
+    <div id="questionBox"></div>
+    <input type="number" id="answerInput" class="menu-btn" placeholder="Your answer">
+    <button onclick="checkAnswer()" class="menu-btn">Submit</button>
+    <p id="score">Score: 0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    let num1, num2;
+    let score = 0;
+
+    function generateQuestion() {
+      num1 = Math.floor(Math.random() * 5) + 1; // 1 to 5
+      num2 = Math.floor(Math.random() * 5) + 1;
+      document.getElementById('questionBox').innerHTML = `<h3>What is ${num1} × ${num2}?</h3>`;
+      document.getElementById('answerInput').value = "";
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseInt(document.getElementById('answerInput').value);
+      if (userAnswer === num1 * num2) {
+        score += 10;
+      }
+      document.getElementById('score').innerText = "Score: " + score;
+      generateQuestion();
+    }
+
+    generateQuestion();
+  </script>
+</body>
+</html>
