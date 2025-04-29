@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Times Table - Medium</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">➗ Times Table - Medium</h1>
+    <div id="questionBox"></div>
+    <input type="number" id="answerInput" class="menu-btn" placeholder="Your answer">
+    <button onclick="checkAnswer()" class="menu-btn">Submit</button>
+    <p id="score">Score: 0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    const questions = [
+  { question: "8 × 7 =", options: ["54", "56", "58", "60"], answer: "56" },
+  { question: "9 × 6 =", options: ["52", "54", "56", "58"], answer: "54" },
+  { question: "7 × 8 =", options: ["54", "56", "58", "60"], answer: "56" },
+  { question: "6 × 9 =", options: ["52", "54", "56", "58"], answer: "54" },
+  { question: "12 × 6 =", options: ["70", "72", "74", "76"], answer: "72" },
+  { question: "11 × 7 =", options: ["76", "77", "78", "79"], answer: "77" },
+  { question: "8 × 9 =", options: ["70", "72", "74", "76"], answer: "72" },
+  { question: "9 × 8 =", options: ["70", "72", "74", "76"], answer: "72" },
+  { question: "7 × 9 =", options: ["61", "62", "63", "64"], answer: "63" },
+  { question: "6 × 8 =", options: ["46", "47", "48", "49"], answer: "48" },
+  { question: "12 × 7 =", options: ["82", "83", "84", "85"], answer: "84" },
+  { question: "11 × 8 =", options: ["86", "87", "88", "89"], answer: "88" },
+  { question: "8 × 6 =", options: ["46", "47", "48", "49"], answer: "48" },
+  { question: "9 × 7 =", options: ["61", "62", "63", "64"], answer: "63" },
+  { question: "7 × 7 =", options: ["48", "49", "50", "51"], answer: "49" },
+  { question: "6 × 7 =", options: ["41", "42", "43", "44"], answer: "42" },
+  { question: "12 × 8 =", options: ["94", "95", "96", "97"], answer: "96" },
+  { question: "11 × 9 =", options: ["98", "99", "100", "101"], answer: "99" },
+  { question: "8 × 8 =", options: ["62", "63", "64", "65"], answer: "64" },
+  { question: "9 × 9 =", options: ["80", "81", "82", "83"], answer: "81" },
+  { question: "7 × 6 =", options: ["41", "42", "43", "44"], answer: "42" },
+  { question: "6 × 6 =", options: ["34", "35", "36", "37"], answer: "36" },
+  { question: "12 × 9 =", options: ["106", "107", "108", "109"], answer: "108" },
+  { question: "11 × 10 =", options: ["108", "109", "110", "111"], answer: "110" },
+  { question: "8 × 10 =", options: ["78", "79", "80", "81"], answer: "80" },
+  { question: "9 × 10 =", options: ["88", "89", "90", "91"], answer: "90" },
+  { question: "7 × 10 =", options: ["68", "69", "70", "71"], answer: "70" },
+  { question: "6 × 10 =", options: ["58", "59", "60", "61"], answer: "60" },
+  { question: "12 × 10 =", options: ["118", "119", "120", "121"], answer: "120" },
+  { question: "11 × 11 =", options: ["120", "121", "122", "123"], answer: "121" },
+  { question: "8 × 11 =", options: ["86", "87", "88", "89"], answer: "88" },
+  { question: "9 × 11 =", options: ["97", "98", "99", "100"], answer: "99" },
+  { question: "7 × 11 =", options: ["76", "77", "78", "79"], answer: "77" },
+  { question: "6 × 11 =", options: ["64", "65", "66", "67"], answer: "66" },
+  { question: "12 × 11 =", options: ["130", "131", "132", "133"], answer: "132" },
+  { question: "11 × 12 =", options: ["130", "131", "132", "133"], answer: "132" },
+  { question: "8 × 12 =", options: ["94", "95", "96", "97"], answer: "96" },
+  { question: "9 × 12 =", options: ["106", "107", "108", "109"], answer: "108" },
+  { question: "7 × 12 =", options: ["82", "83", "84", "85"], answer: "84" },
+  { question: "6 × 12 =", options: ["70", "71", "72", "73"], answer: "72" },
+  { question: "12 × 12 =", options: ["140", "141", "144", "145"], answer: "144" },
+  { question: "11 × 6 =", options: ["64", "65", "66", "67"], answer: "66" },
+  { question: "8 × 7 =", options: ["54", "56", "58", "60"], answer: "56" },
+  { question: "9 × 8 =", options: ["70", "72", "74", "76"], answer: "72" },
+  { question: "7 × 9 =", options: ["61", "62", "63", "64"], answer: "63" },
+  { question: "6 × 8 =", options: ["46", "47", "48", "49"], answer: "48" },
+  { question: "12 × 8 =", options: ["94", "95", "96", "97"], answer: "96" }
+];
+
+
+    function checkAnswer() {
+      const userAnswer = parseInt(document.getElementById('answerInput').value);
+      if (userAnswer === num1 * num2) {
+        score += 10;
+      }
+      document.getElementById('score').innerText = "Score: " + score;
+      generateQuestion();
+    }
+
+    generateQuestion();
+  </script>
+</body>
+</html>

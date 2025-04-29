@@ -17,13 +17,55 @@
 
   <script>
     const questions = [
-      { q: "What comes next? 5, 10, 20, 40, ___", options: ["50", "60", "80", "90"], answer: "80" },
-      { q: "What is 12 divided by 3?", options: ["3", "4", "5", "6"], answer: "4" },
-      { q: "Find the odd one out: Triangle, Square, Circle, Rectangle", options: ["Circle", "Square", "Triangle", "Rectangle"], answer: "Circle" },
-      { q: "What is the capital of France?", options: ["Paris", "London", "Rome", "Berlin"], answer: "Paris" },
-      { q: "Complete the series: 2, 4, 8, 16, ___", options: ["24", "30", "32", "36"], answer: "32" }
-    ];
-
+  { question: "What comes next? 3, 6, 12, 24, ___", options: ["48", "36", "30", "40"], answer: "48" },
+  { question: "Which word means the same as 'Silent'?", options: ["Quiet", "Loud", "Noisy", "Fast"], answer: "Quiet" },
+  { question: "If 1 pencil costs 2p, how much for 5 pencils?", options: ["8p", "10p", "12p", "15p"], answer: "10p" },
+  { question: "Which number is missing? 5, 10, __, 20", options: ["12", "13", "15", "14"], answer: "15" },
+  { question: "Which is heavier?", options: ["Feather", "Stone", "Paper", "Leaf"], answer: "Stone" },
+  { question: "What is 15 ÷ 3?", options: ["4", "5", "6", "7"], answer: "5" },
+  { question: "Complete: 2, 5, 10, 17, ___", options: ["24", "25", "26", "27"], answer: "26" },
+  { question: "Opposite of 'Early'?", options: ["Before", "Late", "Soon", "On time"], answer: "Late" },
+  { question: "Which month has 28 or 29 days?", options: ["January", "March", "February", "April"], answer: "February" },
+  { question: "Which is an even number?", options: ["11", "13", "14", "15"], answer: "14" },
+  { question: "How many sides does a hexagon have?", options: ["5", "6", "7", "8"], answer: "6" },
+  { question: "If a clock shows 3:00, what is the angle between hands?", options: ["90°", "60°", "30°", "120°"], answer: "90°" },
+  { question: "Which is faster?", options: ["Turtle", "Rabbit", "Snail", "Elephant"], answer: "Rabbit" },
+  { question: "Largest planet in solar system?", options: ["Earth", "Mars", "Jupiter", "Saturn"], answer: "Jupiter" },
+  { question: "How many zeros in 1000?", options: ["2", "3", "4", "5"], answer: "3" },
+  { question: "What comes after L in the alphabet?", options: ["M", "N", "O", "K"], answer: "M" },
+  { question: "Which animal is known as King of Jungle?", options: ["Elephant", "Tiger", "Lion", "Wolf"], answer: "Lion" },
+  { question: "Next number: 2, 4, 8, 16, ___", options: ["24", "32", "30", "34"], answer: "32" },
+  { question: "What color do you get mixing red and white?", options: ["Pink", "Orange", "Green", "Purple"], answer: "Pink" },
+  { question: "Smallest prime number?", options: ["0", "1", "2", "3"], answer: "2" },
+  { question: "Half of 36 is?", options: ["18", "20", "16", "17"], answer: "18" },
+  { question: "Which animal has humps?", options: ["Cow", "Camel", "Horse", "Lion"], answer: "Camel" },
+  { question: "How many months in a year?", options: ["10", "11", "12", "13"], answer: "12" },
+  { question: "If you double 9, you get?", options: ["17", "18", "19", "20"], answer: "18" },
+  { question: "Which is not a fruit?", options: ["Apple", "Banana", "Potato", "Mango"], answer: "Potato" },
+  { question: "What shape is a window?", options: ["Circle", "Triangle", "Square", "Rectangle"], answer: "Rectangle" },
+  { question: "How many letters in 'SCHOOL'?", options: ["5", "6", "7", "8"], answer: "6" },
+  { question: "How many colors in rainbow?", options: ["5", "6", "7", "8"], answer: "7" },
+  { question: "How many hours in a day?", options: ["12", "24", "36", "48"], answer: "24" },
+  { question: "How many days in February (non-leap year)?", options: ["28", "29", "30", "31"], answer: "28" },
+  { question: "What is double of 25?", options: ["50", "45", "55", "60"], answer: "50" },
+  { question: "Odd one out: Square, Triangle, Circle, Rectangle?", options: ["Circle", "Square", "Triangle", "Rectangle"], answer: "Circle" },
+  { question: "Sun rises from which direction?", options: ["West", "East", "North", "South"], answer: "East" },
+  { question: "If you subtract 7 from 15?", options: ["8", "9", "7", "6"], answer: "8" },
+  { question: "What is opposite of 'Happy'?", options: ["Joy", "Sad", "Angry", "Smiling"], answer: "Sad" },
+  { question: "Water freezes at?", options: ["0°C", "100°C", "50°C", "20°C"], answer: "0°C" },
+  { question: "Which is a bird?", options: ["Bat", "Owl", "Cat", "Dog"], answer: "Owl" },
+  { question: "Which is a mammal?", options: ["Shark", "Crocodile", "Dolphin", "Frog"], answer: "Dolphin" },
+  { question: "How many vowels in alphabet?", options: ["4", "5", "6", "7"], answer: "5" },
+  { question: "What is 100 ÷ 10?", options: ["10", "5", "15", "20"], answer: "10" },
+  { question: "Which one cannot fly?", options: ["Sparrow", "Pigeon", "Penguin", "Eagle"], answer: "Penguin" },
+  { question: "Odd one out: Banana, Apple, Carrot, Mango?", options: ["Banana", "Apple", "Carrot", "Mango"], answer: "Carrot" },
+  { question: "Largest mammal?", options: ["Elephant", "Giraffe", "Blue Whale", "Rhino"], answer: "Blue Whale" },
+  { question: "Who is known as 'Father of Nation' (India)?", options: ["Nehru", "Gandhi", "Bose", "Tilak"], answer: "Gandhi" },
+  { question: "How many continents?", options: ["5", "6", "7", "8"], answer: "7" },
+  { question: "What comes after 20?", options: ["21", "22", "23", "24"], answer: "21" },
+  { question: "Triangle has how many sides?", options: ["2", "3", "4", "5"], answer: "3" },
+  { question: "First month of the year?", options: ["December", "November", "January", "March"], answer: "January" }
+];
     let current = 0;
     let score = 0;
 

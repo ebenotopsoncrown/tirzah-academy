@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick Maths - Hard</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">➕ Quick Maths - Hard</h1>
+    <div id="questionBox"></div>
+    <input type="number" id="answerInput" class="menu-btn" placeholder="Your answer">
+    <button onclick="checkAnswer()" class="menu-btn">Submit</button>
+    <p id="score">Score: 0</p>
+    <p><a href="choose-level.html">← Back to Levels</a></p>
+  </div>
+
+  <script>
+    const questions = [
+  { question: "35 + 27 =", options: ["61", "62", "63", "64"], answer: "62" },
+  { question: "58 - 29 =", options: ["28", "29", "30", "31"], answer: "29" },
+  { question: "42 + 36 =", options: ["77", "78", "79", "80"], answer: "78" },
+  { question: "63 - 28 =", options: ["34", "35", "36", "37"], answer: "35" },
+  { question: "54 + 29 =", options: ["82", "83", "84", "85"], answer: "83" },
+  { question: "71 - 37 =", options: ["32", "33", "34", "35"], answer: "34" },
+  { question: "45 + 38 =", options: ["82", "83", "84", "85"], answer: "83" },
+  { question: "86 - 49 =", options: ["36", "37", "38", "39"], answer: "37" },
+  { question: "39 + 47 =", options: ["85", "86", "87", "88"], answer: "86" },
+  { question: "72 - 36 =", options: ["35", "36", "37", "38"], answer: "36" },
+  { question: "68 + 27 =", options: ["94", "95", "96", "97"], answer: "95" },
+  { question: "55 - 28 =", options: ["26", "27", "28", "29"], answer: "27" },
+  { question: "44 + 39 =", options: ["82", "83", "84", "85"], answer: "83" },
+  { question: "77 - 42 =", options: ["34", "35", "36", "37"], answer: "35" },
+  { question: "52 + 36 =", options: ["86", "87", "88", "89"], answer: "88" },
+  { question: "69 - 33 =", options: ["34", "35", "36", "37"], answer: "36" },
+  { question: "48 + 47 =", options: ["94", "95", "96", "97"], answer: "95" },
+  { question: "85 - 49 =", options: ["35", "36", "37", "38"], answer: "36" },
+  { question: "63 + 28 =", options: ["90", "91", "92", "93"], answer: "91" },
+  { question: "71 - 34 =", options: ["36", "37", "38", "39"], answer: "37" },
+  { question: "59 + 31 =", options: ["89", "90", "91", "92"], answer: "90" },
+  { question: "78 - 39 =", options: ["38", "39", "40", "41"], answer: "39" },
+  { question: "46 + 49 =", options: ["94", "95", "96", "97"], answer: "95" },
+  { question: "83 - 46 =", options: ["36", "37", "38", "39"], answer: "37" },
+  { question: "65 + 29 =", options: ["93", "94", "95", "96"], answer: "94" },
+  { question: "72 - 35 =", options: ["36", "37", "38", "39"], answer: "37" },
+  { question: "58 + 37 =", options: ["94", "95", "96", "97"], answer: "95" },
+  { question: "88 - 49 =", options: ["38", "39", "40", "41"], answer: "39" },
+  { question: "62 + 31 =", options: ["91", "92", "93", "94"], answer: "93" },
+  { question: "79 - 38 =", options: ["39", "40", "41", "42"], answer: "41" },
+  { question: "57 + 39 =", options: ["95", "96", "97", "98"], answer: "96" },
+  { question: "86 - 47 =", options: ["38", "39", "40", "41"], answer: "39" },
+  { question: "66 + 29 =", options: ["94", "95", "96", "97"], answer: "95" },
+  { question: "73 - 36 =", options: ["36", "37", "38", "39"], answer: "37" },
+  { question: "49 + 45 =", options: ["93", "94", "95", "96"], answer: "94" },
+  { question: "82 - 44 =", options: ["37", "38", "39", "40"], answer: "38" },
+  { question: "64 + 33 =", options: ["96", "97", "98", "99"], answer: "97" },
+  { question: "76 - 39 =", options: ["36", "37", "38", "39"], answer: "37" },
+  { question: "55 + 38 =", options: ["92", "93", "94", "95"], answer: "93" },
+  { question: "84 - 46 =", options: ["37", "38", "39", "40"], answer: "38" },
+  { question: "67 + 29 =", options: ["94", "95", "96", "97"], answer: "96" },
+  { question: "75 - 37 =", options: ["37", "38", "39", "40"], answer: "38" },
+  { question: "59 + 36 =", options: ["94", "95", "96", "97"], answer: "95" },
+  { question: "83 - 45 =", options: ["37", "38", "39", "40"], answer: "38" },
+  { question: "61 + 34 =", options: ["94", "95", "96", "97"], answer: "95" },
+  { question: "77 - 39 =", options: ["37", "38", "39", "40"], answer: "38" },
+  { question: "53 + 41 =", options: ["93", "94", "95", "96"], answer: "94" },
+  { question: "79 - 40 =", options: ["38", "39", "40", "41"], answer: "39" }
+];
+
+      document.getElementById('questionBox').innerHTML = `<h3>What is ${num1} ${operator} ${num2}?</h3>`;
+      document.getElementById('answerInput').value = "";
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseInt(document.getElementById('answerInput').value);
+      let correctAnswer;
+      if (operator === "+") correctAnswer = num1 + num2;
+      else if (operator === "-") correctAnswer = num1 - num2;
+      else if (operator === "×") correctAnswer = num1 * num2;
+      else correctAnswer = num1 / num2;
+
+      if (userAnswer === correctAnswer) {
+        score += 10;
+      }
+      document.getElementById('score').innerText = "Score: " + score;
+      generateQuestion();
+    }
+
+    generateQuestion();
+  </script>
+</body>
+</html>

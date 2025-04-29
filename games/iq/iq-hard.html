@@ -17,13 +17,54 @@
 
   <script>
     const questions = [
-      { q: "Find the next number: 1, 4, 9, 16, ___", options: ["25", "24", "26", "23"], answer: "25" },
-      { q: "Which is the odd one: 11, 13, 17, 21", options: ["11", "13", "17", "21"], answer: "21" },
-      { q: "What comes next: A, C, F, J, O, ___", options: ["U", "V", "W", "X"], answer: "U" },
-      { q: "Solve: If BIRD = 2194, what is CAT?", options: ["312", "314", "316", "318"], answer: "314" },
-      { q: "Missing pattern: 2, 6, 12, 20, ___", options: ["28", "30", "32", "34"], answer: "30" }
-    ];
-
+  { question: "If a bat and a ball cost $1.10 together and the bat costs $1 more than the ball, how much is the ball?", options: ["5¢", "10¢", "15¢", "20¢"], answer: "5¢" },
+  { question: "Which number is missing: 1, 1, 2, 3, 5, 8, ___?", options: ["11", "12", "13", "14"], answer: "13" },
+  { question: "What comes next? J, F, M, A, M, J, J, ___", options: ["A", "S", "O", "N"], answer: "A" },
+  { question: "How many degrees in a right angle?", options: ["45", "60", "90", "180"], answer: "90" },
+  { question: "What is the square root of 81?", options: ["8", "9", "7", "10"], answer: "9" },
+  { question: "What is 15% of 200?", options: ["20", "25", "30", "35"], answer: "30" },
+  { question: "Complete the pattern: 2, 4, 8, 16, 32, ___", options: ["48", "56", "64", "72"], answer: "64" },
+  { question: "A train travels 60 miles per hour. How far in 3 hours?", options: ["120 miles", "150 miles", "180 miles", "200 miles"], answer: "180 miles" },
+  { question: "Which number is smallest?", options: ["0.8", "0.88", "0.09", "0.98"], answer: "0.09" },
+  { question: "Which is the odd one out?", options: ["Triangle", "Circle", "Square", "Rectangle"], answer: "Circle" },
+  { question: "What is 7² (7 squared)?", options: ["49", "56", "63", "64"], answer: "49" },
+  { question: "If you rearrange 'NITE', you get the name of a?", options: ["Animal", "Country", "Time", "Food"], answer: "Time" },
+  { question: "If all bloops are razzies and all razzies are lazzies, are all bloops definitely lazzies?", options: ["Yes", "No", "Maybe", "Cannot tell"], answer: "Yes" },
+  { question: "If a hen and a half lays an egg and a half in a day and a half, how many eggs will half a dozen hens lay in half a dozen days?", options: ["12", "18", "24", "36"], answer: "24" },
+  { question: "How many sides does a dodecagon have?", options: ["10", "11", "12", "13"], answer: "12" },
+  { question: "If it takes 3 people 3 hours to paint 3 walls, how long will it take 6 people to paint 6 walls?", options: ["3", "4", "5", "6"], answer: "3" },
+  { question: "What is the missing number? 2, 5, 10, 17, ___", options: ["26", "27", "28", "29"], answer: "26" },
+  { question: "How many minutes in 2.5 hours?", options: ["120", "150", "180", "210"], answer: "150" },
+  { question: "What is half of 3/4?", options: ["1/4", "1/2", "3/8", "2/3"], answer: "3/8" },
+  { question: "If you have 8 socks of red and 8 socks of blue in a drawer, how many socks must you pull out to ensure a pair?", options: ["2", "3", "4", "5"], answer: "3" },
+  { question: "Which is the odd one out: Milk, Butter, Cheese, Apple?", options: ["Milk", "Butter", "Cheese", "Apple"], answer: "Apple" },
+  { question: "Which is heavier, 1kg of feathers or 1kg of lead?", options: ["Feathers", "Lead", "Same", "Cannot tell"], answer: "Same" },
+  { question: "Complete the sequence: 121, 144, 169, ___", options: ["180", "190", "196", "200"], answer: "196" },
+  { question: "Find the missing number: 3, 6, 12, 24, ___", options: ["36", "48", "50", "54"], answer: "48" },
+  { question: "Which fraction is bigger: 3/5 or 4/7?", options: ["3/5", "4/7", "Same", "Cannot tell"], answer: "3/5" },
+  { question: "Which country is the largest by area?", options: ["USA", "Russia", "China", "Canada"], answer: "Russia" },
+  { question: "What comes next? 2, 5, 10, 17, ___", options: ["26", "27", "28", "29"], answer: "26" },
+  { question: "A car goes 60km/hr. How long to go 30km?", options: ["0.5 hr", "1 hr", "1.5 hr", "2 hr"], answer: "0.5 hr" },
+  { question: "If it is noon in London, what time is it in New York (5 hours behind)?", options: ["5am", "6am", "7am", "8am"], answer: "7am" },
+  { question: "Which is NOT a prime number?", options: ["2", "3", "4", "5"], answer: "4" },
+  { question: "What comes next? 1, 3, 6, 10, ___", options: ["14", "15", "16", "17"], answer: "15" },
+  { question: "What number is halfway between 30 and 60?", options: ["40", "45", "50", "55"], answer: "45" },
+  { question: "Which is heavier, 100g of sugar or 0.1kg of flour?", options: ["Sugar", "Flour", "Same", "Cannot tell"], answer: "Same" },
+  { question: "Which is bigger: 0.5 or 0.05?", options: ["0.5", "0.05", "Same", "Cannot tell"], answer: "0.5" },
+  { question: "Which is odd: Circle, Sphere, Square, Triangle?", options: ["Sphere", "Circle", "Square", "Triangle"], answer: "Sphere" },
+  { question: "Which of these is a mammal?", options: ["Shark", "Dolphin", "Crocodile", "Salmon"], answer: "Dolphin" },
+  { question: "If you triple 9, what do you get?", options: ["27", "28", "29", "30"], answer: "27" },
+  { question: "How many seconds in one hour?", options: ["3000", "3600", "4000", "4200"], answer: "3600" },
+  { question: "How many months have 31 days?", options: ["6", "7", "8", "9"], answer: "7" },
+  { question: "Which number is even?", options: ["13", "17", "22", "31"], answer: "22" },
+  { question: "What is the cube root of 27?", options: ["2", "3", "4", "5"], answer: "3" },
+  { question: "What number is next: 1, 4, 9, 16, ___", options: ["25", "30", "36", "40"], answer: "25" },
+  { question: "Which country is largest in population?", options: ["USA", "India", "China", "Brazil"], answer: "China" },
+  { question: "Find the missing number: 7, 14, 28, ___", options: ["40", "48", "56", "60"], answer: "56" },
+  { question: "How many sides does a pentagon have?", options: ["4", "5", "6", "7"], answer: "5" },
+  { question: "How many hours in 2 days?", options: ["24", "48", "72", "96"], answer: "48" },
+  { question: "Largest ocean?", options: ["Atlantic", "Indian", "Pacific", "Arctic"], answer: "Pacific" }
+];
     let current = 0;
     let score = 0;
 

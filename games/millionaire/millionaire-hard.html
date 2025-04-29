@@ -17,12 +17,38 @@
 
   <script>
     const questions = [
-      { q: "What is the square root of 144?", options: ["10", "11", "12", "13"], answer: "12" },
-      { q: "In what year did World War II end?", options: ["1940", "1945", "1950", "1955"], answer: "1945" },
-      { q: "Who painted the Mona Lisa?", options: ["Vincent Van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"], answer: "Leonardo da Vinci" },
-      { q: "Which is the smallest prime number?", options: ["0", "1", "2", "3"], answer: "2" },
-      { q: "What is the chemical symbol for Gold?", options: ["Au", "Ag", "Go", "Gd"], answer: "Au" }
-    ];
+  { question: "What is the hardest natural substance on Earth?", options: ["Gold", "Diamond", "Iron", "Silver"], answer: "Diamond" },
+  { question: "Which organ detoxifies chemicals in the human body?", options: ["Kidney", "Liver", "Heart", "Lung"], answer: "Liver" },
+  { question: "What is the chemical formula for table salt?", options: ["H2O", "CO2", "NaCl", "O2"], answer: "NaCl" },
+  { question: "Which element has the chemical symbol 'Fe'?", options: ["Lead", "Iron", "Silver", "Gold"], answer: "Iron" },
+  { question: "What is the tallest mountain in the world?", options: ["K2", "Everest", "Makalu", "Kangchenjunga"], answer: "Everest" },
+  { question: "Which country invented paper?", options: ["Egypt", "India", "China", "Greece"], answer: "China" },
+  { question: "What is the capital of Australia?", options: ["Sydney", "Melbourne", "Canberra", "Perth"], answer: "Canberra" },
+  { question: "Who invented the telephone?", options: ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "James Watt"], answer: "Alexander Graham Bell" },
+  { question: "What is the speed of light?", options: ["300,000 km/s", "150,000 km/s", "200,000 km/s", "250,000 km/s"], answer: "300,000 km/s" },
+  { question: "Who painted the Sistine Chapel ceiling?", options: ["Da Vinci", "Michelangelo", "Raphael", "Van Gogh"], answer: "Michelangelo" },
+  { question: "Which blood type is known as the universal donor?", options: ["O+", "O-", "A+", "B-"], answer: "O-" },
+  { question: "What is the currency of Switzerland?", options: ["Euro", "Franc", "Pound", "Dollar"], answer: "Franc" },
+  { question: "How many chambers does the human heart have?", options: ["2", "3", "4", "5"], answer: "4" },
+  { question: "What does DNA stand for?", options: ["Deoxyribonucleic Acid", "Dynamic Natural Acid", "Dioxygenated Nucleic Acid", "Double Nitrogen Acid"], answer: "Deoxyribonucleic Acid" },
+  { question: "Which planet has the most moons?", options: ["Earth", "Mars", "Jupiter", "Saturn"], answer: "Saturn" },
+  { question: "Which country is both a continent and a country?", options: ["Australia", "Canada", "Russia", "Greenland"], answer: "Australia" },
+  { question: "Which scientist discovered penicillin?", options: ["Marie Curie", "Alexander Fleming", "Louis Pasteur", "Isaac Newton"], answer: "Alexander Fleming" },
+  { question: "Which famous ship sank in 1912?", options: ["Titanic", "Lusitania", "Britannic", "Queen Mary"], answer: "Titanic" },
+  { question: "What is the capital city of Kenya?", options: ["Kampala", "Lagos", "Nairobi", "Accra"], answer: "Nairobi" },
+  { question: "Which chemical element is needed for muscles to contract?", options: ["Calcium", "Iron", "Potassium", "Zinc"], answer: "Calcium" },
+  { question: "Who wrote 'Harry Potter' series?", options: ["J.R.R. Tolkien", "J.K. Rowling", "Stephen King", "Suzanne Collins"], answer: "J.K. Rowling" },
+  { question: "What is the largest internal organ in the human body?", options: ["Brain", "Heart", "Liver", "Lung"], answer: "Liver" },
+  { question: "What part of the cell contains DNA?", options: ["Nucleus", "Membrane", "Mitochondria", "Cytoplasm"], answer: "Nucleus" },
+  { question: "Which ocean is Bermuda located in?", options: ["Atlantic", "Indian", "Pacific", "Arctic"], answer: "Atlantic" },
+  { question: "What year did World War II end?", options: ["1942", "1945", "1948", "1950"], answer: "1945" },
+  { question: "Which country has the most population?", options: ["USA", "India", "China", "Brazil"], answer: "China" },
+  { question: "Which part of the eye controls the amount of light entering?", options: ["Pupil", "Lens", "Cornea", "Iris"], answer: "Iris" },
+  { question: "How many players are there on a soccer team on field?", options: ["9", "10", "11", "12"], answer: "11" },
+  { question: "Which metal is heavier: silver or gold?", options: ["Silver", "Gold"], answer: "Gold" },
+  { question: "Which part of the human brain controls balance?", options: ["Cerebrum", "Cerebellum", "Brainstem", "Amygdala"], answer: "Cerebellum" }
+];
+
 
     let current = 0;
     let money = 0;

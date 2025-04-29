@@ -17,12 +17,57 @@
 
   <script>
     const questions = [
-      { q: "What is the color of the sky on a clear day?", options: ["Blue", "Green", "Red", "Yellow"], answer: "Blue" },
-      { q: "How many days are there in a week?", options: ["5", "6", "7", "8"], answer: "7" },
-      { q: "What sound does a dog make?", options: ["Meow", "Quack", "Moo", "Bark"], answer: "Bark" },
-      { q: "How many legs does a spider have?", options: ["6", "8", "4", "10"], answer: "8" },
-      { q: "Which one is a fruit?", options: ["Carrot", "Potato", "Banana", "Lettuce"], answer: "Banana" }
-    ];
+  { question: "What is the capital of France?", options: ["Paris", "London", "Rome", "Berlin"], answer: "Paris" },
+  { question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], answer: "8" },
+  { question: "Which animal is known as the King of the Jungle?", options: ["Elephant", "Lion", "Tiger", "Giraffe"], answer: "Lion" },
+  { question: "What is 5 × 5?", options: ["20", "25", "30", "35"], answer: "25" },
+  { question: "Which color is made by mixing red and blue?", options: ["Green", "Purple", "Orange", "Yellow"], answer: "Purple" },
+  { question: "What planet is known as the Red Planet?", options: ["Mars", "Earth", "Jupiter", "Saturn"], answer: "Mars" },
+  { question: "Which ocean is the largest?", options: ["Atlantic", "Pacific", "Indian", "Arctic"], answer: "Pacific" },
+  { question: "How many hours are there in a day?", options: ["12", "24", "36", "48"], answer: "24" },
+  { question: "Which sport is Serena Williams famous for?", options: ["Football", "Tennis", "Basketball", "Swimming"], answer: "Tennis" },
+  { question: "What is the boiling point of water?", options: ["90°C", "95°C", "100°C", "105°C"], answer: "100°C" },
+  { question: "Which country is shaped like a boot?", options: ["Spain", "Italy", "France", "Germany"], answer: "Italy" },
+  { question: "How many continents are there?", options: ["5", "6", "7", "8"], answer: "7" },
+  { question: "What gas do plants breathe in?", options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Helium"], answer: "Carbon Dioxide" },
+  { question: "Which bird is known for its colorful tail?", options: ["Eagle", "Parrot", "Peacock", "Sparrow"], answer: "Peacock" },
+  { question: "Who painted the Mona Lisa?", options: ["Van Gogh", "Leonardo da Vinci", "Picasso", "Rembrandt"], answer: "Leonardo da Vinci" },
+  { question: "What do bees produce?", options: ["Milk", "Honey", "Water", "Juice"], answer: "Honey" },
+  { question: "How many zeros are there in one hundred?", options: ["1", "2", "3", "4"], answer: "2" },
+  { question: "What is the main ingredient in bread?", options: ["Sugar", "Salt", "Flour", "Rice"], answer: "Flour" },
+  { question: "Which fruit keeps the doctor away if eaten daily?", options: ["Banana", "Apple", "Mango", "Orange"], answer: "Apple" },
+  { question: "What is H2O commonly known as?", options: ["Oxygen", "Water", "Hydrogen", "Carbon Dioxide"], answer: "Water" },
+  { question: "What shape has four equal sides?", options: ["Rectangle", "Triangle", "Circle", "Square"], answer: "Square" },
+  { question: "What do you call a house made of ice?", options: ["Hut", "Igloo", "Cabin", "Tent"], answer: "Igloo" },
+  { question: "How many months are in a year?", options: ["10", "11", "12", "13"], answer: "12" },
+  { question: "Which animal is the largest mammal?", options: ["Elephant", "Blue Whale", "Giraffe", "Rhino"], answer: "Blue Whale" },
+  { question: "Who discovered gravity?", options: ["Einstein", "Newton", "Galileo", "Hawking"], answer: "Newton" },
+  { question: "What color is the sky on a clear day?", options: ["Green", "Blue", "Red", "Yellow"], answer: "Blue" },
+  { question: "What is 12 ÷ 3?", options: ["3", "4", "5", "6"], answer: "4" },
+  { question: "Which season comes after spring?", options: ["Winter", "Autumn", "Summer", "Rainy"], answer: "Summer" },
+  { question: "What is the name of the fairy in Peter Pan?", options: ["Tinker Bell", "Wendy", "Snow White", "Ariel"], answer: "Tinker Bell" },
+  { question: "Which planet is closest to the sun?", options: ["Venus", "Earth", "Mercury", "Mars"], answer: "Mercury" },
+  { question: "What is the name of our galaxy?", options: ["Andromeda", "Milky Way", "Mars", "Solar System"], answer: "Milky Way" },
+  { question: "How many bones are there in the human body?", options: ["200", "206", "210", "215"], answer: "206" },
+  { question: "What do caterpillars become?", options: ["Bees", "Moths", "Butterflies", "Ants"], answer: "Butterflies" },
+  { question: "What is the freezing point of water?", options: ["-10°C", "0°C", "10°C", "20°C"], answer: "0°C" },
+  { question: "What do you call a young cat?", options: ["Cub", "Kitten", "Puppy", "Chick"], answer: "Kitten" },
+  { question: "What is the capital city of England?", options: ["Paris", "London", "Berlin", "Rome"], answer: "London" },
+  { question: "How many sides does a triangle have?", options: ["2", "3", "4", "5"], answer: "3" },
+  { question: "What is 7 × 6?", options: ["42", "44", "46", "48"], answer: "42" },
+  { question: "Which insect makes a buzzing sound?", options: ["Bee", "Butterfly", "Ant", "Beetle"], answer: "Bee" },
+  { question: "Which metal is liquid at room temperature?", options: ["Gold", "Silver", "Mercury", "Lead"], answer: "Mercury" },
+  { question: "Which country gifted the Statue of Liberty to the USA?", options: ["England", "France", "Germany", "Spain"], answer: "France" },
+  { question: "Which month has an extra day in a leap year?", options: ["January", "February", "March", "April"], answer: "February" },
+  { question: "What is the currency of Japan?", options: ["Yen", "Won", "Dollar", "Euro"], answer: "Yen" },
+  { question: "How many colors are there in a rainbow?", options: ["5", "6", "7", "8"], answer: "7" },
+  { question: "What is the largest island in the world?", options: ["Greenland", "Australia", "New Zealand", "Iceland"], answer: "Greenland" },
+  { question: "What part of the plant conducts photosynthesis?", options: ["Roots", "Stem", "Leaves", "Flowers"], answer: "Leaves" },
+  { question: "Which planet is famous for its rings?", options: ["Earth", "Mars", "Saturn", "Jupiter"], answer: "Saturn" },
+  { question: "What is 50% of 100?", options: ["25", "30", "40", "50"], answer: "50" },
+  { question: "Which sport uses a bat and ball?", options: ["Football", "Basketball", "Tennis", "Baseball"], answer: "Baseball" }
+];
+
 
     let current = 0;
     let money = 0;
