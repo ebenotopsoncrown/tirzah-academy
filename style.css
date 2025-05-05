@@ -1,99 +1,151 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #a8edea, #fed6e3);
-  height: 100vh;
-  overflow: hidden;
+  background-image: url('images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: #333;
+  min-height: 100vh;
   position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
 }
 
 .container {
   text-align: center;
-  padding-top: 50px;
-  position: relative;
-  z-index: 2;
-}
-
-.logo {
-  font-size: 36px;
-  color: #006064;
-  margin-bottom: 10px;
-  animation: slideDown 1s ease;
-}
-
-.subtitle {
-  font-size: 20px;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.menu-btn {
-  background-color: #00acc1;
+  padding: 2rem 1rem;
   color: white;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* === App Title === */
+.logo {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+/* === Subtitle === */
+.subtitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: #f5f5f5;
+}
+
+/* === Logout Button Top-Right === */
+#logoutBtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 0.6rem 1.2rem;
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+#logoutBtn:hover {
+  background-color: #e33b3b;
+}
+
+/* === Menu Grid Layout === */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem 0;
+  margin-top: 30px;
+}
+
+/* === Menu Buttons Styling === */
+.menu-btn {
+  font-size: 1.2rem;
+  padding: 1.2rem 2rem;
+  background-color: #add8e6; /* Light blue */
+  color: #800020; /* Wine color */
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
   text-decoration: none;
-  padding: 12px 25px;
-  margin: 10px;
-  border-radius: 30px;
-  font-size: 18px;
-  width: 250px;
   text-align: center;
-  transition: background-color 0.3s, transform 0.3s;
+  width: 100%;
+  max-width: 320px;
+  font-weight: 600;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 .menu-btn:hover {
-  background-color: #00838f;
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  background-color: #9acbe0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* === Footer === */
 .footer {
-  margin-top: 40px;
-  font-size: 14px;
-  color: #555;
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #ddd;
 }
 
+/* === Floating Bubbles === */
 .bubbles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
   overflow: hidden;
-  z-index: 1;
 }
 
 .bubble {
   position: absolute;
   bottom: -100px;
-  background: rgba(255, 255, 255, 0.5);
+  width: var(--size);
+  height: var(--size);
+  background: rgba(255, 200, 255, 0.2);
   border-radius: 50%;
-  animation: float 20s infinite;
+  left: var(--left);
+  animation: floatUp 20s infinite ease-in;
 }
 
-.bubble::before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
-
-@keyframes float {
+@keyframes floatUp {
   0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
+    transform: translateY(0);
+    opacity: 0.3;
   }
   100% {
-    transform: translateY(-1200px) scale(0.5);
+    transform: translateY(-120vh);
     opacity: 0;
   }
 }
 
-@keyframes slideDown {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+
+
